@@ -1,22 +1,38 @@
 """
-Web search tool for MCP
+Web search tool using DuckDuckGo
 """
+from duckduckgo_search import DDGS
 
 
-def web_search(query: str, num_results: int = 5):
+def web_search(query: str, num_results: int = 5) -> dict:
     """
-    Search the web for information
-
-    TODO: Implement actual web search using:
-    - requests + Google Custom Search API
-    - Or: requests + SerpAPI
-    - Or: requests + DuckDuckGo
+    Search the web using DuckDuckGo
 
     Args:
         query: Search query string
         num_results: Number of results to return
 
     Returns:
-        List of search results with title, url, snippet
+        Dict with query and list of results
     """
-    pass
+    try:
+        results = []
+        with DDGS() as ddgs:
+            for r in ddgs.text(query, max_results=num_results):
+                results.append({
+                    "title": r.get("title", ""),
+                    "snippet": r.get("body", ""),
+                    "url": r.get("href", "")
+                })
+
+        return {
+            "query": query,
+            "results": results
+        }
+
+    except Exception as e:
+        return {
+            "query": query,
+            "results": [],
+            "error": str(e)
+        }
