@@ -2,7 +2,7 @@
 
 A multi-agent AI system that orchestrates specialized Python agents to handle research workflows using LangGraph and MCP (Model Context Protocol).
 
-## 🏗️ Architecture
+## 🏗️ Architecture flow 
 
 ```
 User Query
