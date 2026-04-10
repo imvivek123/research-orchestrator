@@ -6,7 +6,8 @@ A multi-agent AI system that orchestrates specialized Python agents to handle re
 
 ```
 User Query
-    ↓
+
+    
 Orchestrator Agent (routes workflow)
     ↓          ↓           ↓
 Research    Summarizer   Report
@@ -16,9 +17,8 @@ Agent       Agent        Agent
          Final Report
 ```
 
-## 🚀 Quick Start
-
-### Prerequisites
+🚀 Quick Start
+ Prerequisites
 - Python 3.11+
 - pip package manager
 
